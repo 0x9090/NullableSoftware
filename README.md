@@ -14,4 +14,4 @@
 * Add Contact Form
 * Change Graphics
 * Email Sending
-* Blog IFrame
+* Blog IFrame - https://stackoverflow.com/questions/34313391/can-i-embed-google-blogger-site-into-my-website
