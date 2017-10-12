@@ -2,7 +2,8 @@
 
 ## Prerequesites
 ### OSX
-* brew install java maven
+* brew install maven
+* brew cask install java
 
 
 ## Compilation
