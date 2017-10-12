@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/")
 @Produces(MediaType.TEXT_HTML)
 public class HomeResource {
-    private String contactEmail = "austin [At} nullable (dot] software";
+    private String contactEmail = "";
 
     public HomeResource(String contactEmail) {
         this.contactEmail = contactEmail;
