@@ -1,7 +1,12 @@
 # Nullable.Software Web Site
 
+## Prerequesites
+### OSX
+* brew install java maven
+
+
 ## Compilation
-* brew install maven
+
 * mvn clean package exec:exec
 
 ## TODO
