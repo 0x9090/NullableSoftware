@@ -56,14 +56,14 @@ public class NullableApplication extends Application<NullableConfiguration> {
 
 		/* Security Filters */
         //CSRFRequestFilter csrfRequestFilter	= new CSRFRequestFilter();
-        //CSRFResponseFilter csrfResponseFilter = new CSRFResponseFilter(config.getCsrfSeed());
+        //CSRFResponseFilter csrfResponseFilter = new CSRFResponseFilter();
         //HeadersResponseFilter headersResponseFilter = new HeadersResponseFilter();
-        //IDSRequestFilter idsRequestFilter = new IDSRequestFilter();
 
         /* Resources */
         final HomeResource homeResource = new HomeResource("");
 
         /* Health Checks */
+
 
         /* Environment Registration */
         environment.jersey().register(securityBinder);

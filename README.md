@@ -11,7 +11,4 @@
 * mvn clean package exec:exec
 
 ## TODO
-* Add Contact Form
-* Change Graphics
-* Email Sending
-* Blog IFrame - https://stackoverflow.com/questions/34313391/can-i-embed-google-blogger-site-into-my-website
+See Wiki - https://github.com/0x9090/NullableSoftware/wiki
