@@ -6,9 +6,11 @@
 * brew cask install java
 
 
-## Compilation
+## Compilation & Running
 
-* mvn clean package exec:exec
+* mvn clean package exec:exec 
+  
+listens on localhost:9010 per config.yaml
 
 ## TODO
 See Wiki - https://github.com/0x9090/NullableSoftware/wiki
