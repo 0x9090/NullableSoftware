@@ -11,7 +11,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <maven.version>3.6.1</maven.version>
-        <dropwizard.version>1.1.4</dropwizard.version>
+        <dropwizard.version>1.2.0</dropwizard.version>
         <metrics.version>3.2.3</metrics.version>
         <shade.version>3.0.0</shade.version>
         <mavenJar.version>3.0.2</mavenJar.version>
