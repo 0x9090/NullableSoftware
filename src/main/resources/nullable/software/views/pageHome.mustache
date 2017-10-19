@@ -13,6 +13,8 @@
     <!-- Font Awesome -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/styles.min.css">
+    <!-- ReCaptcha -->
+    <script src='https://www.google.com/recaptcha/api.js'></script> {{! This import cannot be locally hosted }}
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar" data-offset="100">
@@ -125,6 +127,13 @@
             <div class="row">
                 <div class="col-sm-12">
                     <p>{{email}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <form action="/contact/" method="post">
+                        <button class="g-recaptcha" data-sitekey="6Le8BjUUAAAAAOjAliNOBm-qSbn2NDT2FvDN7yzR" data-callback="YourOnSubmitFn">Submit</button>
+                    </form>
                 </div>
             </div>
             <div class="row">
