@@ -20,6 +20,8 @@
         <validator.version>1.6</validator.version>
         <bouncycastle.version>1.57</bouncycastle.version>
         <pac4j.version>2.0.0</pac4j.version>
+        <mail.version>1.6.0</mail.version>
+
     </properties>
 
     <dependencies>
@@ -72,6 +74,11 @@
             <groupId>org.pac4j</groupId>
             <artifactId>dropwizard-pac4j</artifactId>
             <version>${pac4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>${mail.version}</version>
         </dependency>
     </dependencies>
 
