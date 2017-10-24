@@ -6,13 +6,14 @@
     <meta charset=utf-8>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name=description content="">
-    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Nullable Security</title>
     <!-- Bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/vendors/bootstrap/css/bootstrap.css">
     <!-- Font Awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/vendors/font-awesome/css/font-awesome.css">
+    {{!-- user stylesheet --}}
+    <link rel="stylesheet" href="/static/css/styles.css">
     <!-- ReCaptcha -->
     <script src='https://www.google.com/recaptcha/api.js'></script> {{! This import cannot be locally hosted }}
 </head>
@@ -114,9 +115,9 @@
     <section id="connect" class="slideanim">
         <br>
         <br>
-        <div class="container section-box connect-section text-center">
+        <div class="container section-box connect-section">
             <div class="row">
-                <h2 class="section-header col-sm-12"><span class="underline-red">reach out and <span class="color-bg-red">connect</span></span></h2>
+                <h2 class="section-header col-sm-12 text-center"><span class="underline-red">reach out and <span class="color-bg-red">connect</span></span></h2>
             </div>
             <div class="row">
                 <div class="col-sm-2"></div>
@@ -139,12 +140,14 @@
                             <input type="text" class="form-control" id="message">
                         </div>
                         <input type="hidden" id="token" value="{{token}}">
-                        <button class="g-recaptcha" data-sitekey="6Le8BjUUAAAAAOjAliNOBm-qSbn2NDT2FvDN7yzR" data-callback="YourOnSubmitFn">Submit</button>
+                        <div class="text-center">
+                            <button class="g-recaptcha submit-btn" data-sitekey="6Le8BjUUAAAAAOjAliNOBm-qSbn2NDT2FvDN7yzR" data-callback="YourOnSubmitFn">Submit</button>
+                        </div>
                     </form>
                 </div>
                 <div class="col-sm-2"></div>
             </div>
-            <div class="row">
+            <div class="row social-btns text-center">
                 <div class="col-sm-12">
                     <a href="https://www.facebook.com/NullableSec" target="_blank">
                         <button class="custom-button draw meet"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i>
@@ -178,12 +181,14 @@
         </div>
     </footer>
 </main>
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<!-- Bootstrap -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="/static/js/main.min.js"></script>
+{{!-- jquery --}}
+<script src="/static/js/jquery-3.2.1.js"></script>
+{{!-- jquery easing for scrolling --}}
+<script src="/static/js/jquery.easing.1.3.js"></script>
+{{!-- bootstrap --}}
+<script src="/static/vendors/bootstrap/js/bootstrap.js"></script>
+{{!-- user js --}}
+<script src="/static/js/main.js"></script>
 </body>
 
 </html>

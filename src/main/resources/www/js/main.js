@@ -1,20 +1,20 @@
 function collapseNavbar() {
     $(".navbar").offset().top > 50 ? $(".navbar-fixed-top").addClass("top-nav-collapse") : $(".navbar-fixed-top").removeClass("top-nav-collapse")
 }
-$(window).scroll(collapseNavbar), $(document).ready(collapseNavbar), $(".navbar-collapse ul li a").click(function() {
+$(window).scroll(collapseNavbar), $(document).ready(collapseNavbar), $(".navbar-collapse ul li a").click(function () {
     $(".navbar-collapse").collapse("hide")
-}), $(function() {
-    $("a.page-scroll").bind("click", function(o) {
+}), $(function () {
+    $("a.page-scroll").bind("click", function (o) {
         var a = $(this);
         $("html, body").stop().animate({
             scrollTop: $(a.attr("href")).offset().top
         }, 1250, "easeInOutExpo"), o.preventDefault()
     })
-}), $(window).scroll(function() {
-    $(".slideanim").each(function() {
+}), $(window).scroll(function () {
+    $(".slideanim").each(function () {
         $(this).offset().top < $(window).scrollTop() + 800 && $(this).addClass("slide")
     })
-}), $(document).scroll(function() {
+}), $(document).scroll(function () {
     var o = $("#about").offset(),
         a = $("#services").offset(),
         t = $("#connect").offset(),

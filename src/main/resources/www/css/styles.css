@@ -1,19 +1,25 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway|Roboto");
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto/Roboto-Regular.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/Raleway/Raleway-Regular.ttf) format("truetype")
+}
+
 * {
     box-sizing: border-box
 }
+
 body {
     color: #fff;
     padding-top: 50px;
     background-color: #282828;
     background-size: 16px 16px
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+
+h1, h2, h3, h4, h5, h6 {
     font-family: Roboto, sans-serif;
     font-weight: 700;
     text-transform: uppercase;
@@ -21,200 +27,56 @@ h6 {
     line-height: 1.5;
     margin: 0 0 35px
 }
-.section-header {
-    margin-bottom: 2em
-}
-.underline-green {
-    border-bottom: 2px solid #3cbe56
-}
-.underline-blue {
-    border-bottom: 2px solid #1192fe
-}
-.underline-red {
-    border-bottom: 2px solid #dd2d21
-}
-.services-section ul,
-p {
+
+.services-section ul, p {
     font-family: Raleway, sans-serif;
     margin: 0 0 25px;
     font-size: 20px;
     line-height: 1.5
 }
-@media (min-width: 768px) {
-    .services-section ul,
-    p {
+
+@media (min-width:768px) {
+    .services-section ul, p {
         margin: 0 0 35px;
         font-size: 18px
     }
 }
-.light {
-    font-weight: 300
-}
-.page-header {
-    position: relative;
-    text-shadow: 2px 2px 22px #3cbe56;
-    height: 200px;
-    margin: 0 auto;
-    background-color: #000116;
-    background-image: url(https://sensorstechforum.com/wp-content/uploads/2016/05/hacker-sensorstechforum.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: 0
-}
-.page-header>h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    color: #f8f8f8
-}
+
 a {
-    color: #737373!important
+    color: #737373 !important
 }
-.qr-code {
-    height: 200px;
-    width: 200px
+
+a:hover {
+    text-decoration: none
 }
-.navbar-brand {
-    color: #737373!important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    transition: .2s linear
+
+.form-control {
+    color: #737373;
+    border: none;
 }
-.navbar-brand:hover {
-    color: #595959!important
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.9);
 }
-.navbar {
-    transition: all .2s linear;
-    border-top: 4px solid #fff;
-    border-bottom: none
-}
-.nav {
-    font-weight: 700;
-    text-transform: uppercase
-}
-.nav li a {
-    border-bottom: 4px solid transparent;
-    transition: all .2s linear
-}
-.nav li a:before {
-    content: "";
-    position: absolute;
-    bottom: 75%;
-    left: 0;
-    height: 100%;
-    width: 8px;
-    opacity: 0;
-    transition: all .2s linear
-}
-@media (min-width: 768px) {
-    .nav li a:after {
-        content: "";
-        position: absolute;
-        bottom: 75%;
-        right: 0;
-        height: 100%;
-        width: 8px;
-        opacity: 0;
-        transition: all .2s linear
-    }
-}
-.nav li a.about:hover {
-    color: #3cbe56!important
-}
-.nav li a.about:hover:before {
-    content: "";
-    background: #3cbe56;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    width: 4px;
-    opacity: 1
-}
-@media (min-width: 768px) {
-    .nav li a.about:hover:after {
-        content: "";
-        background: #3cbe56;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        height: 100%;
-        width: 4px;
-        opacity: 1
-    }
-}
-.nav li a.services:hover {
-    color: #1192fe!important
-}
-.nav li a.services:hover:before {
-    content: "";
-    background: #1192fe;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    width: 4px;
-    opacity: 1
-}
-@media (min-width: 768px) {
-    .nav li a.services:hover:after {
-        content: "";
-        background: #1192fe;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        height: 100%;
-        width: 4px;
-        opacity: 1
-    }
-}
-.nav li a.connect:hover {
-    color: #dd2d21!important
-}
-.nav li a.connect:hover:before {
-    content: "";
-    background: #dd2d21;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    width: 4px;
-    opacity: 1
-}
-@media (min-width: 768px) {
-    .nav li a.connect:hover:after {
-        content: "";
-        background: #dd2d21;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        height: 100%;
-        width: 4px;
-        opacity: 1
-    }
-}
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #282828
-}
+
 li.active a.about {
     color: #3cbe56!important
 }
+
 li.active a.services {
     color: #1192fe!important
 }
+
 li.active a.connect {
     color: #dd2d21!important
 }
-@media (min-width: 768px) {
+
+@media (min-width:768px) {
     li.active a.about {
         color: #3cbe56!important;
         border-bottom: 4px solid #3cbe56
     }
-    li.active a.about,
-    li.active a.services {
+    li.active a.about, li.active a.services {
         -webkit-filter: brightness(104%);
         filter: brightness(104%);
         -webkit-transform: scale(1.05);
@@ -235,54 +97,270 @@ li.active a.connect {
         border-bottom: 4px solid #dd2d21
     }
 }
-.color-bg,
-.color-bg-blue,
-.color-bg-green,
-.color-bg-red {
-    padding: 2px 2px 0
+
+.page-header {
+    position: relative;
+    text-shadow: 2px 2px 22px #3cbe56;
+    height: 200px;
+    margin: 0 auto;
+    background-color: #000116;
+    background-image: url(https://sensorstechforum.com/wp-content/uploads/2016/05/hacker-sensorstechforum.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0
 }
-.color-bg-blue {
-    background-color: #1192fe
+
+.page-header>h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #f8f8f8
 }
-.color-bg-red {
-    background-color: #dd2d21
+
+.nav {
+    font-weight: 700;
+    text-transform: uppercase
 }
-.color-bg-green {
-    background-color: #3cbe56
+
+.nav li a {
+    border-bottom: 4px solid transparent;
+    transition: all .2s linear
 }
+
+.nav li a:before {
+    content: "";
+    position: absolute;
+    bottom: 75%;
+    left: 0;
+    height: 100%;
+    width: 8px;
+    opacity: 0;
+    transition: all .2s linear
+}
+
+@media (min-width:768px) {
+    .nav li a:after {
+        content: "";
+        position: absolute;
+        bottom: 75%;
+        right: 0;
+        height: 100%;
+        width: 8px;
+        opacity: 0;
+        transition: all .2s linear
+    }
+}
+
+.nav li a.about:hover {
+    color: #3cbe56!important
+}
+
+.nav li a.about:hover:before {
+    content: "";
+    background: #3cbe56;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 4px;
+    opacity: 1
+}
+
+@media (min-width:768px) {
+    .nav li a.about:hover:after {
+        content: "";
+        background: #3cbe56;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 4px;
+        opacity: 1
+    }
+}
+
+.nav li a.services:hover {
+    color: #1192fe!important
+}
+
+.nav li a.services:hover:before {
+    content: "";
+    background: #1192fe;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 4px;
+    opacity: 1
+}
+
+@media (min-width:768px) {
+    .nav li a.services:hover:after {
+        content: "";
+        background: #1192fe;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 4px;
+        opacity: 1
+    }
+}
+
+.nav li a.connect:hover {
+    color: #dd2d21!important
+}
+
+.nav li a.connect:hover:before {
+    content: "";
+    background: #dd2d21;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 4px;
+    opacity: 1
+}
+
+@media (min-width:768px) {
+    .nav li a.connect:hover:after {
+        content: "";
+        background: #dd2d21;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 4px;
+        opacity: 1
+    }
+}
+
+.navbar {
+    transition: all .2s linear;
+    border-top: 4px solid #fff;
+    border-bottom: none
+}
+
+.navbar-brand {
+    color: #737373!important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: .2s linear
+}
+
+.navbar-brand:hover {
+    color: #595959!important
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #282828
+}
+
 .section-box {
     height: auto;
     padding-top: 25px;
-    padding-bottom: 50px
+    padding-bottom: 50px;
+    margin-bottom: 50px
 }
+
+.section-header {
+    margin-bottom: 2em
+}
+
 .services-section {
     background-color: #333;
     box-shadow: 0 0 8px hsla(0, 0%, 70%, .35)
 }
+
 .services-section ul {
     list-style: none
 }
+
 .services-section ul span {
     margin-right: 10px
 }
+
+.connect-section {
+    padding-bottom: 150px
+}
+
+.underline-green {
+    border-bottom: 2px solid #3cbe56
+}
+
+.underline-blue {
+    border-bottom: 2px solid #1192fe
+}
+
+.underline-red {
+    border-bottom: 2px solid #dd2d21
+}
+
+.color-bg, .color-bg-blue, .color-bg-green, .color-bg-red {
+    padding: 2px 2px 0
+}
+
+.color-bg-blue {
+    background-color: #1192fe
+}
+
+.color-bg-red {
+    background-color: #dd2d21
+}
+
+.color-bg-green {
+    background-color: #3cbe56
+}
+
+.light {
+    font-weight: 300
+}
+
 .glyphicon-chevron-up {
     color: #3cbe56;
     font-size: 50px;
     transition: color .2s linear
 }
+
 .glyphicon-chevron-up:hover {
     color: #309744
 }
+
 .glyphicon-check {
     -webkit-filter: brightness(90%);
     filter: brightness(90%)
 }
+
+.qr-code {
+    height: 200px;
+    width: 200px
+}
+
+.submit-btn {
+    color: #737373;
+    background-color: #fff;
+    padding: 1em;
+    border: none;
+    border-radius: 5px;
+    transition: all .2s linear;
+}
+
+.submit-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.social-btns {
+    margin-top: 100px;
+}
+
 .custom-button {
     background: none;
     border: 0;
     height: auto;
     width: 125px;
-    box-sizing: border-box;
     margin: 1em;
     padding: 1.5em;
     box-shadow: inset 0 0 0 4px #737373;
@@ -292,65 +370,76 @@ li.active a.connect {
     position: relative;
     vertical-align: middle
 }
-.custom-button:after,
-.custom-button:before {
+
+.custom-button:after, .custom-button:before {
     box-sizing: inherit;
     content: "";
     position: absolute;
     width: 100%;
     height: 100%
 }
+
 .draw {
     transition: color .25s
 }
-.draw:after,
-.draw:before {
+
+.draw:after, .draw:before {
     border: 4px solid transparent;
     width: 0;
     height: 0
 }
+
 .draw:before {
     top: 0;
     left: 0
 }
+
 .draw:after {
     bottom: 0;
     right: 0
 }
+
 .draw:hover {
     color: #b3b3b3
 }
-.draw:hover:after,
-.draw:hover:before {
+
+.draw:hover:after, .draw:hover:before {
     width: 100%;
     height: 100%
 }
+
 .draw:hover:before {
     border-top-color: #b3b3b3;
     border-right-color: #b3b3b3;
     transition: width .25s ease-out, height .25s ease-out .25s
 }
+
 .draw:hover:after {
     border-bottom-color: #b3b3b3;
     border-left-color: #b3b3b3;
     transition: border-color 0s ease-out .5s, width .25s ease-out .5s, height .25s ease-out .75s
 }
+
 .meet:hover {
     color: #b3b3b3
 }
+
 .meet:after {
     top: 0;
     left: 0
 }
+
 .meet:hover:before {
     border-top-color: #b3b3b3;
     border-right-color: #b3b3b3
 }
+
 .meet:hover:after {
     border-bottom-color: #b3b3b3;
     border-left-color: #b3b3b3;
     transition: height .25s ease-out, width .25s ease-out .25s
 }
+
 .fakeButtons {
     height: 12px;
     width: 12px;
@@ -363,27 +452,31 @@ li.active a.connect {
     border-color: #9d252b;
     display: inline-block
 }
+
 .fakeMinimize {
     left: 11px;
     background-color: #ffc100;
     border-color: #9d802c
 }
+
 .fakeZoom {
     left: 16px;
     background-color: #00d742;
     border-color: #049931
 }
+
 .fakeMenu {
     height: 25px;
     background-color: #bbb;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px
 }
-.fakeMenu,
-.fakeScreen {
+
+.fakeMenu, .fakeScreen {
     width: auto;
     margin: 0 auto
 }
+
 .fakeScreen {
     color: lime;
     font-family: monaco;
@@ -392,23 +485,28 @@ li.active a.connect {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px
 }
+
 .blink {
     -webkit-animation: a 1s steps(2, start) infinite;
     animation: a 1s steps(2, start) infinite
 }
+
 @-webkit-keyframes a {
     to {
         visibility: hidden
     }
 }
+
 @keyframes a {
     to {
         visibility: hidden
     }
 }
+
 .slideanim {
     visibility: hidden
 }
+
 .slide {
     -webkit-animation-name: b;
     animation-name: b;
@@ -418,6 +516,7 @@ li.active a.connect {
     animation-fill-mode: forwards;
     visibility: visible
 }
+
 @-webkit-keyframes b {
     0% {
         opacity: 0;
@@ -430,6 +529,7 @@ li.active a.connect {
         transform: translateY(0)
     }
 }
+
 @keyframes b {
     0% {
         opacity: 0;
