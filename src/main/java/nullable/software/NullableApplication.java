@@ -8,10 +8,15 @@ import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
 import nullable.software.resources.HomeResource;
 import org.eclipse.jetty.servlet.ErrorPageErrorHandler;
+import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.pac4j.core.config.Config;
 import org.pac4j.dropwizard.Pac4jBundle;
 import org.pac4j.dropwizard.Pac4jFactory;
+
+import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
+import java.util.EnumSet;
 
 public class NullableApplication extends Application<NullableConfiguration> {
     final Pac4jBundle<NullableConfiguration> securityBundle = new Pac4jBundle<NullableConfiguration>() {
@@ -42,6 +47,13 @@ public class NullableApplication extends Application<NullableConfiguration> {
                 bind(securityBundle.getConfig()).to(Config.class);
             }
         };
+
+        // Configure CORS
+        FilterRegistration.Dynamic cors = environment.servlets().addFilter("CORS", CrossOriginFilter.class);
+        cors.setInitParameter("allowedOrigins", "https://www.googleapis.com");
+        cors.setInitParameter("allowedMethods", "GET,POST");
+        cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+        cors.setInitParameter(CrossOriginFilter.CHAIN_PREFLIGHT_PARAM, Boolean.FALSE.toString());
 
         /* Error Handling */
         ErrorPageErrorHandler errorHandler = new ErrorPageErrorHandler();
