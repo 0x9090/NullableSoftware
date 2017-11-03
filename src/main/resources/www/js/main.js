@@ -1,23 +1,73 @@
+"use strict";
+
+// Collapse Nav
+
+$(window).scroll(collapseNavbar);
+$(document).ready(collapseNavbar);
+
 function collapseNavbar() {
-    $(".navbar").offset().top > 50 ? $(".navbar-fixed-top").addClass("top-nav-collapse") : $(".navbar-fixed-top").removeClass("top-nav-collapse")
-}
-$(window).scroll(collapseNavbar), $(document).ready(collapseNavbar), $(".navbar-collapse ul li a").click(function () {
-    $(".navbar-collapse").collapse("hide")
-}), $(function () {
-    $("a.page-scroll").bind("click", function (o) {
-        var a = $(this);
-        $("html, body").stop().animate({
-            scrollTop: $(a.attr("href")).offset().top
-        }, 1250, "easeInOutExpo"), o.preventDefault()
-    })
-}), $(window).scroll(function () {
+    if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    }
+};
+
+// Closes the Responsive Menu on Menu Item Click
+
+$('.navbar-collapse ul li a').click(function () {
+    $(".navbar-collapse").collapse('hide');
+});
+
+// jQuery Easing
+
+$(function () {
+    $('a.page-scroll').bind('click', function (event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1250, 'easeInOutExpo');
+        event.preventDefault();
+
+    });
+});
+
+// Slide Animation
+
+$(window).scroll(function () {
     $(".slideanim").each(function () {
-        $(this).offset().top < $(window).scrollTop() + 800 && $(this).addClass("slide")
-    })
-}), $(document).scroll(function () {
-    var o = $("#about").offset(),
-        a = $("#services").offset(),
-        t = $("#connect").offset(),
-        l = $(this).scrollTop() + 100;
-    l >= o.top && l < a.top ? $(".navbar").css("border-top-color", "#3CBE56") : l >= a.top && l < t.top ? $(".navbar").css("border-top-color", "#1192FE") : l >= t.top ? $(".navbar").css("border-top-color", "#DD2D21") : $(".navbar").css("border-top-color", "#fff")
-}), $("#terminal-date").text("Last login: " + new Date + " on tty00");
+        var pos = $(this).offset().top;
+
+        var winTop = $(window).scrollTop();
+        if (pos < winTop + 800) {
+            $(this).addClass("slide");
+        }
+    });
+});
+
+// Header Color Scroll
+
+$(window).scroll(function () {
+    var aboutScroll = $('#about').position().top;
+    var serviceScroll = $('#services').position().top;
+    var learnScroll = $('#learn').position().top;
+    var connectScroll = $('#connect').position().top;
+    var y = $(this).scrollTop() + 100;
+
+    if (y >= aboutScroll && y < serviceScroll) {
+        $(".navbar").css("border-top-color", "#3CBE56");
+    } else if (y >= serviceScroll && y < learnScroll) {
+        $(".navbar").css("border-top-color", "#1192FE");
+    } else if (y >= learnScroll && y < connectScroll) {
+        $(".navbar").css("border-top-color", "#ff6000");
+    } else if (y >= connectScroll) {
+        $(".navbar").css("border-top-color", "#DD2D21")
+    }
+    else {
+        $(".navbar").css("border-top-color", "#fff");
+    }
+});
+
+// Terminal Date
+
+$("#terminal-date").text("Last login: " + new Date() + " on ttys000");
