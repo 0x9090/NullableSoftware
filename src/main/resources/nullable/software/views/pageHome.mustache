@@ -133,16 +133,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <!--handlebars is commented out to prevent errors until implemented-->
-                    <div class="blog-container text-center">
-                        {{!#each items}}
-                        <div class="blog-post">
-                            <!-- example post. this would be the automatic template for every post -->
-                            <h4 class="blog-title">{{!this.title}}Statically Compile Tor</h4>
-                            <a class="blog-url main-button" href="{{!this.url}}">View Post</a>
-                        </div>
-                        {{!/each}}
-                    </div>
+                    <div id="js-blog-container" class="blog-container text-center"></div>
                 </div>
             </div>
         </div>

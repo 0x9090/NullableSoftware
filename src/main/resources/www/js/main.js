@@ -71,3 +71,14 @@ $(window).scroll(function () {
 // Terminal Date
 
 $("#terminal-date").text("Last login: " + new Date() + " on ttys000");
+
+// Blog Post Feed
+$.getJSON('https://blog.nullable.software/feeds/posts/default/?alt=json' + '&callback=?', function (data) {
+    // for loop gets three most recent posts
+    for (var i = 0; i < 3; i++) {
+        $('#js-blog-container').append('<div class="blog-post">' +
+            '<h4 class="blog-title">' + data.feed.entry[i].title.$t + '</h4>' +
+            '<a class="blog-url main-button" href="' + data.feed.entry[i].link[2].href + '">' + 'View Post' + '</a>' +
+            '</div>' + '<br>')
+    }
+});

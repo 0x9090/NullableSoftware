@@ -317,12 +317,16 @@ li.active a.connect {
 }
 
 .blog-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     overflow-y: scroll;
     height: 300px;
     /*using inset box shadow as border*/
-    box-shadow: inset 0 0 20px -10px #ff6000;
+    -webkit-box-shadow: inset 0 0 20px -10px #ff6000;
+            box-shadow: inset 0 0 20px -10px #ff6000;
 }
 
 .blog-post {
@@ -406,6 +410,7 @@ li.active a.connect {
     color: #737373;
     border: none;
     background-color: #fff;
+    -webkit-transition: all .2s linear;
     transition: all .2s linear;
 }
 
@@ -560,7 +565,6 @@ li.active a.connect {
 
 .fakeScreen {
     color: lime;
-    font-family: monaco;
     background-color: #151515;
     padding: 20px;
     border-bottom-left-radius: 5px;
