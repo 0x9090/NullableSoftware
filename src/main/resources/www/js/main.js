@@ -73,12 +73,20 @@ $(window).scroll(function () {
 $("#terminal-date").text("Last login: " + new Date() + " on ttys000");
 
 // Blog Post Feed
+
 $.getJSON('https://blog.nullable.software/feeds/posts/default/?alt=json' + '&callback=?', function (data) {
+    console.log(data);
     // for loop gets three most recent posts
     for (var i = 0; i < 3; i++) {
-        $('#js-blog-container').append('<div class="blog-post">' +
+        var blogText = $.parseHTML(data.feed.entry[i].content.$t);
+        var trimmedText = blogText[0].innerText.substring(0, 300);
+        var blogContent = trimmedText + '...';
+
+
+        $('#js-blog-container').append('<div class="flex-box">' +
+            '<a class="blog-post" href="' + data.feed.entry[i].link[2].href + '" target="_blank">' +
             '<h4 class="blog-title">' + data.feed.entry[i].title.$t + '</h4>' +
-            '<a class="blog-url main-button" href="' + data.feed.entry[i].link[2].href + '">' + 'View Post' + '</a>' +
-            '</div>' + '<br>')
+            '<p>' + blogContent + '</p>' +
+            '</a>' + '</div>')
     }
 });

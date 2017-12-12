@@ -126,16 +126,14 @@
     <section id="learn" class="slideanim">
         <br>
         <br>
-        <div class="container section-box">
+        <div class="container-fluid section-box">
             <div class="row">
-                <h2 class="section-header col-sm-12 text-center"><span class="underline-orange">subscribe and <span
+                <h2 class="section-header col-sm-12 text-center"><span class="underline-orange"><a class="subscribe-btn"
+                                                                                                   href="https://blog.nullable.software/feeds/posts/default?alt=rss"
+                                                                                                   target="_blank">subscribe</a> and <span
                         class="color-bg-orange">learn</span></span></h2>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div id="js-blog-container" class="blog-container text-center"></div>
-                </div>
-            </div>
+            <div id="js-blog-container" class="flex-container"></div>
         </div>
     </section>
     <!-- / learn-->
@@ -169,12 +167,12 @@
                             <input type="text" class="form-control" id="message">
                         </div>
                         <input type="hidden" id="token" value="{{token}}">
-                        <div class="text-center">
-                            <button class="g-recaptcha main-button"
-                                    data-sitekey="6Le8BjUUAAAAAOjAliNOBm-qSbn2NDT2FvDN7yzR"
-                                    data-callback="YourOnSubmitFn">Submit
-                            </button>
-                        </div>
+                        <!--<div class="text-center">-->
+                            <!--<button class="g-recaptcha main-button"-->
+                            <!--data-sitekey="6Le8BjUUAAAAAOjAliNOBm-qSbn2NDT2FvDN7yzR"-->
+                            <!--data-callback="YourOnSubmitFn">Submit-->
+                            <!--</button>-->
+                        <!--</div>-->
                     </form>
                 </div>
                 <div class="col-sm-2"></div>
