@@ -158,7 +158,7 @@
                     <workingDirectory>${project.basedir}</workingDirectory>
                     <arguments>
                         <argument>-jar</argument>
-                        <argument>${project.build.directory}\${project.artifactId}-${project.version}.jar</argument>
+                        <argument>${project.build.directory}/${project.artifactId}-${project.version}.jar</argument>
                         <argument>server</argument>
                         <argument>config.yaml</argument>
                     </arguments>
