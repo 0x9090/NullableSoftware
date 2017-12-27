@@ -9,6 +9,10 @@ server:
     - type: http
       port: 9011
 
+contactEmail: email@test.com
 smtpHost: localhost
 smtpUser: username
 smtpPass: password
+
+coinHiveKey: asdf
+coinHiveRounds: 256

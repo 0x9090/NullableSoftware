@@ -10,8 +10,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <maven.version>3.6.1</maven.version>
-        <dropwizard.version>1.2.0</dropwizard.version>
+        <maven.version>3.7.0</maven.version>
+        <dropwizard.version>1.2.2</dropwizard.version>
         <metrics.version>3.2.3</metrics.version>
         <shade.version>3.0.0</shade.version>
         <mavenJar.version>3.0.2</mavenJar.version>
@@ -21,7 +21,8 @@
         <bouncycastle.version>1.57</bouncycastle.version>
         <pac4j.version>2.0.0</pac4j.version>
         <mail.version>1.6.0</mail.version>
-        <servlets.version>9.4.7.v20170914</servlets.version>
+        <servlets.version>9.4.8.v20171121</servlets.version>
+        <json.version>20171018</json.version>
     </properties>
 
     <dependencies>
@@ -84,6 +85,11 @@
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlets</artifactId>
             <version>${servlets.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${json.version}</version>
         </dependency>
     </dependencies>
 

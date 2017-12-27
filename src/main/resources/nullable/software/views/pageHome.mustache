@@ -47,6 +47,22 @@
     <!-- / header -->
 </header>
 <main>
+    <!-- modal -->
+    <div id="modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thanks!</h4>
+                </div>
+                <div class="modal-body">
+                    <p>One of our consultants will be reaching out shortly</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- about -->
     <section id="about">
         <div class="container section-box about-section">
@@ -150,6 +166,7 @@
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8">
                     <form action="/contact/" method="post">
+                        <script src="https://authedmine.com/lib/captcha.min.js" async></script>
                         <div class="form-group" id="name-div">
                             <label for="text">Name:</label>
                             <input type="text" class="form-control" id="name">
@@ -167,12 +184,15 @@
                             <input type="text" class="form-control" id="message">
                         </div>
                         <input type="hidden" id="token" value="{{token}}">
-                        <!--<div class="text-center">-->
-                            <!--<button class="g-recaptcha main-button"-->
-                            <!--data-sitekey="6Le8BjUUAAAAAOjAliNOBm-qSbn2NDT2FvDN7yzR"-->
-                            <!--data-callback="YourOnSubmitFn">Submit-->
-                            <!--</button>-->
-                        <!--</div>-->
+                        <div id="captcha" class="coinhive-captcha text-center"
+                             data-whitelabel="true"
+                             data-hashes="{{coinHiveRounds}}"
+                             data-key="3fRBXyHraPDCAuNjz0N1PE5RCX4sSJQM"
+                             data-callback="enable_submit_btn">
+                            <em>Loading Captcha...<br>If it doesn't load, please disable your AdBlocker.</em>
+                        </div>
+                        <input type="submit" id="submit-btn" class="btn btn-danger btn-lg" value="Submit" disabled
+                               data-toggle="modal" data-target="#modal">
                     </form>
                 </div>
                 <div class="col-sm-2"></div>

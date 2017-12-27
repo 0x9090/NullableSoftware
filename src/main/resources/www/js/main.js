@@ -1,5 +1,13 @@
 "use strict";
 
+// Security Utilities
+
+function htmlEncode(value){
+    //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+    //then grab the encoded contents back out.  The div never exists on the page.
+    return $('<div/>').text(value).html();
+}
+
 // Collapse Nav
 
 $(window).scroll(collapseNavbar);
@@ -75,18 +83,30 @@ $("#terminal-date").text("Last login: " + new Date() + " on ttys000");
 // Blog Post Feed
 
 $.getJSON('https://blog.nullable.software/feeds/posts/default/?alt=json' + '&callback=?', function (data) {
-    console.log(data);
+    // console.log(data);
     // for loop gets three most recent posts
     for (var i = 0; i < 3; i++) {
         var blogText = $.parseHTML(data.feed.entry[i].content.$t);
         var trimmedText = blogText[0].innerText.substring(0, 300);
-        var blogContent = trimmedText + '...';
+        trimmedText = htmlEncode(trimmedText);
+        var blogContent = trimmedText + ' ...';
 
 
         $('#js-blog-container').append('<div class="flex-box">' +
-            '<a class="blog-post" href="' + data.feed.entry[i].link[2].href + '" target="_blank">' +
-            '<h4 class="blog-title">' + data.feed.entry[i].title.$t + '</h4>' +
+            '<a class="blog-post" href="' + htmlEncode(data.feed.entry[i].link[2].href) + '" target="_blank">' +
+            '<h4 class="blog-title">' + htmlEncode(data.feed.entry[i].title.$t) + '</h4>' +
             '<p>' + blogContent + '</p>' +
             '</a>' + '</div>')
     }
 });
+
+// Enable Contact Button
+
+function enable_submit_btn() {
+    $('#submit-btn').prop('disabled', false);
+    $('#submit-btn').animate({
+        height: '+=10px',
+        width: '+=30px'
+    });
+    $('#submit-btn').css('font-size: 30%');
+}

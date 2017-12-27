@@ -517,6 +517,11 @@ li.active a.connect {
     vertical-align: middle
 }
 
+.modal-content {
+    background-color: #282828;
+    text-align: center;
+}
+
 .social-button:after, .social-button:before {
     -webkit-box-sizing: inherit;
     box-sizing: inherit;
@@ -691,4 +696,15 @@ li.active a.connect {
         -webkit-transform: translateY(0);
         transform: translateY(0)
     }
+}
+
+#submit-btn {
+    text-align: center;
+    display: block;
+    margin: 15px auto 0;
+}
+
+.coinhive-captcha {
+    border-radius: 20px;
+    padding-top: 10px;
 }
