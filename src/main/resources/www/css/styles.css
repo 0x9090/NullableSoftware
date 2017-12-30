@@ -104,7 +104,7 @@ li.active a.connect {
     height: 200px;
     margin: 0 auto;
     background-color: #000116;
-    background-image: url(https://sensorstechforum.com/wp-content/uploads/2016/05/hacker-sensorstechforum.jpg);
+    background-image: url(/static/images/anon.jpg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 0

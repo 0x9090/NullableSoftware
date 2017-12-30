@@ -13,8 +13,15 @@
     <link rel="stylesheet" type="text/css" href="/static/vendors/font-awesome/css/font-awesome.css">
     <!-- User Styles -->
     <link rel="stylesheet" href="/static/css/styles.css">
-    <!-- ReCaptcha -->
-    <script src='https://www.google.com/recaptcha/api.js'></script> {{! This import cannot be locally hosted }}
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111737260-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-111737260-1');
+    </script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar" data-offset="100">
@@ -27,7 +34,9 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
                         class="icon-bar"></span> <span class="icon-bar"></span></button>
-                <a class="navbar-brand page-scroll" href="#page-top">nullable security</a></div>
+                <a class="page-scroll" href="#page-top">
+                    <img class="navbar-brand" src="/static/images/NullableSecurityLogoA2.png"
+                         alt="Nullable Security"></a></div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
@@ -211,7 +220,7 @@
                         <button class="social-button draw meet"><i class="fa fa-2x fa-linkedin" aria-hidden="true"></i>
                         </button>
                     </a>
-                    <a href="https://feeds.feedburner.com/NullableSecurity" target="_blank">
+                    <a href="https://blog.nullable.software/feeds/posts/default?alt=rss" target="_blank">
                         <button class="social-button draw meet"><i class="fa fa-2x fa-rss" aria-hidden="true"></i>
                         </button>
                     </a>
