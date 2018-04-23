@@ -27,7 +27,6 @@ public class CoinHive {
 
     public boolean verify() {
         String urlParameters  = "secret=" + coinHiveKey + "&token=" + captchaToken + "&hashes=" + coinHiveRounds;
-        System.out.println(urlParameters);
         byte[] postData = urlParameters.getBytes( StandardCharsets.UTF_8 );
         HttpURLConnection conn;
         BufferedReader reader;
@@ -71,6 +70,7 @@ public class CoinHive {
     }
 
     private boolean parse_response(String response) {
+        System.out.println(response);
         return false;
     }
 }

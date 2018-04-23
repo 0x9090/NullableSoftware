@@ -38,10 +38,14 @@ public class HomeResource {
 
     @POST
     @Path("/contact")
-    public void contactForm(@FormParam("captchaToken") String captchaToken) {
+    public void contactForm(@FormParam("coinhive-captcha-token") String captchaToken,
+                            @FormParam("name") String name,
+                            @FormParam("email") String email,
+                            @FormParam("message") String message) {
         CoinHive hive = new CoinHive(coinHiveKey, coinHiveRounds, captchaToken);
         if (hive.verify()) {
             SNS sns = new SNS(this.snsAccessKey, this.snsSecretKey, this.snsARN);
+
             sns.send("testing");
         }
     }
