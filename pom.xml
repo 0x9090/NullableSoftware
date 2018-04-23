@@ -23,6 +23,7 @@
         <mail.version>1.6.0</mail.version>
         <servlets.version>9.4.8.v20171121</servlets.version>
         <json.version>20171018</json.version>
+        <sns.version>1.11.315</sns.version>
     </properties>
 
     <dependencies>
@@ -90,6 +91,11 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>${json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-sns</artifactId>
+            <version>${sns.version}</version>
         </dependency>
     </dependencies>
 

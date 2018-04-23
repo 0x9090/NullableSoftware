@@ -6,6 +6,7 @@ import io.dropwizard.forms.MultiPartBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
+import nullable.software.core.SNS;
 import nullable.software.resources.HomeResource;
 import org.eclipse.jetty.servlet.ErrorPageErrorHandler;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
@@ -56,8 +57,8 @@ public class NullableApplication extends Application<NullableConfiguration> {
         //cors.setInitParameter(CrossOriginFilter.CHAIN_PREFLIGHT_PARAM, Boolean.FALSE.toString());
 
         /* Error Handling */
-        ErrorPageErrorHandler errorHandler = new ErrorPageErrorHandler();
-        errorHandler.addErrorPage(300,599,"/error/");
+        //ErrorPageErrorHandler errorHandler = new ErrorPageErrorHandler();
+        //errorHandler.addErrorPage(300,599,"/error/");
         //errorHandler.addErrorPage(404, "/error/404/");
         //errorHandler.addErrorPage(405,599,"/error/");
         //InvalidMethodMapper invalidMethodMapper = new InvalidMethodMapper();
@@ -73,14 +74,14 @@ public class NullableApplication extends Application<NullableConfiguration> {
 
         /* Resources */
         final HomeResource homeResource = new HomeResource(config.getContactEmail(), config.getCoinHiveKey(),
-                config.getCoinHiveRounds());
+                config.getCoinHiveRounds(), config.getSnsAccessKey(), config.getSnsSecretKey(), config.getSnsARN());
 
         /* Health Checks */
 
 
         /* Environment Registration */
         environment.jersey().register(securityBinder);
-        environment.getApplicationContext().setErrorHandler(errorHandler);
+        //environment.getApplicationContext().setErrorHandler(errorHandler);
         //environment.jersey().register(invalidMethodMapper);
         environment.jersey().register(homeResource);
     }

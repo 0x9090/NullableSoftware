@@ -14,5 +14,9 @@ smtpHost: localhost
 smtpUser: username
 smtpPass: password
 
+snsAccessKey: asdf
+snsSecretKey: asdf
+snsARN: asdf
+
 coinHiveKey: asdf
 coinHiveRounds: 256

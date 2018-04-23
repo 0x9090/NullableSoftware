@@ -1,8 +1,8 @@
 package nullable.software.resources;
 
+import nullable.software.core.SNS;
 import nullable.software.views.HomeView;
 import nullable.software.core.CoinHive;
-import nullable.software.core.Email;
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -17,11 +17,18 @@ public class HomeResource {
     private String contactEmail;
     private String coinHiveKey;
     private int coinHiveRounds;
+    private String snsAccessKey;
+    private String snsSecretKey;
+    private String snsARN;
 
-    public HomeResource(String contactEmail, String coinHiveKey, int coinHiveRounds) {
+    public HomeResource(String contactEmail, String coinHiveKey, int coinHiveRounds, String snsAccessKey,
+                        String snsSecretKey, String snsARN) {
         this.contactEmail = contactEmail;
         this.coinHiveKey = coinHiveKey;
         this.coinHiveRounds = coinHiveRounds;
+        this.snsAccessKey = snsAccessKey;
+        this.snsSecretKey = snsSecretKey;
+        this.snsARN = snsARN;
     }
 
     @GET
@@ -34,7 +41,8 @@ public class HomeResource {
     public void contactForm(@FormParam("captchaToken") String captchaToken) {
         CoinHive hive = new CoinHive(coinHiveKey, coinHiveRounds, captchaToken);
         if (hive.verify()) {
-            Email.SendMail();
+            SNS sns = new SNS(this.snsAccessKey, this.snsSecretKey, this.snsARN);
+            sns.send("testing");
         }
     }
 
