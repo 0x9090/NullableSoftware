@@ -68,14 +68,11 @@ public class CoinHive {
     }
 
     private boolean parse_response(String response) {
-        System.out.println(response);
-        String success;
         try {
             JSONObject obj = new JSONObject(response);
-            success = obj.getString("success");
+            return obj.getBoolean("success");
         } catch(Exception e) {
             return false;
         }
-        return success.equals("true");
     }
 }

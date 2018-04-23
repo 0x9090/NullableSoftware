@@ -44,6 +44,7 @@ public class HomeResource {
                             @FormParam("message") String message) {
         CoinHive hive = new CoinHive(coinHiveKey, coinHiveRounds, captchaToken);
         if (hive.verify()) {
+            System.out.println("coin hive check passed");
             SNS sns = new SNS(this.snsAccessKey, this.snsSecretKey, this.snsARN);
             String payload = "Name: " + name + "\nEmail: " + email + "\nMessage: " + message + "\n";
             sns.send(payload);
