@@ -45,8 +45,8 @@ public class HomeResource {
         CoinHive hive = new CoinHive(coinHiveKey, coinHiveRounds, captchaToken);
         if (hive.verify()) {
             SNS sns = new SNS(this.snsAccessKey, this.snsSecretKey, this.snsARN);
-
-            sns.send("testing");
+            String payload = "Name: " + name + "\nEmail: " + email + "\nMessage: " + message + "\n";
+            sns.send(payload);
         }
     }
 

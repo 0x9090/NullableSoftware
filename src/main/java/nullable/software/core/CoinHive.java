@@ -1,5 +1,6 @@
 package nullable.software.core;
 
+import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -9,15 +10,11 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class CoinHive {
     private String coinHiveKey;
     private int coinHiveRounds;
     private String captchaToken;
-    private String coinHiveEndpoint = "https://api.coinhive.com/token/verify";
 
     public CoinHive(String coinHiveKey, int coinHiveRounds, String captchaToken) {
         this.coinHiveKey = coinHiveKey;
@@ -32,6 +29,7 @@ public class CoinHive {
         BufferedReader reader;
         URL url;
         try {
+            String coinHiveEndpoint = "https://api.coinhive.com/token/verify";
             url = new URL(coinHiveEndpoint);
         } catch (MalformedURLException e) {
             return false;
@@ -71,6 +69,13 @@ public class CoinHive {
 
     private boolean parse_response(String response) {
         System.out.println(response);
-        return false;
+        String success;
+        try {
+            JSONObject obj = new JSONObject(response);
+            success = obj.getString("success");
+        } catch(Exception e) {
+            return false;
+        }
+        return success.equals("true");
     }
 }
