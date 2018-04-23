@@ -20,10 +20,6 @@ public class SNS {
     }
 
     public void send(String message) {
-        System.out.println(message);
-        System.out.println(this.snsARN);
-        System.out.println(this.accessKey);
-        System.out.println(this.secretKey);
         BasicAWSCredentials creds = new BasicAWSCredentials(accessKey, secretKey);
         AmazonSNS client = AmazonSNSClientBuilder.standard().withRegion(Regions.US_WEST_1)
                 .withCredentials(new AWSStaticCredentialsProvider(creds)).build();
