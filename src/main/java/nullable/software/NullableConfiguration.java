@@ -8,10 +8,19 @@ import org.pac4j.dropwizard.Pac4jFactory;
 import javax.validation.constraints.NotNull;
 
 public class NullableConfiguration extends Configuration {
+    @NotEmpty private String contactEmail;
     @NotEmpty private String smtpHost;
     @NotEmpty private String smtpUser;
     @NotEmpty private String smtpPass;
+    @NotEmpty private String coinHiveKey;
+    @NotEmpty private String coinHiveRounds;
+    @NotEmpty private String snsAccessKey;
+    @NotEmpty private String snsSecretKey;
+    @NotEmpty private String snsARN;
 
+    @JsonProperty public String getContactEmail() {
+        return contactEmail;
+    }
     @JsonProperty public String getSmtpHost() {
         return smtpHost;
     }
@@ -20,6 +29,21 @@ public class NullableConfiguration extends Configuration {
     }
     @JsonProperty public String getSmtpPass() {
         return smtpPass;
+    }
+    @JsonProperty public String getCoinHiveKey() {
+        return coinHiveKey;
+    }
+    @JsonProperty public int getCoinHiveRounds() {
+        return Integer.parseInt(coinHiveRounds);
+    }
+    @JsonProperty public String getSnsAccessKey() {
+        return snsAccessKey;
+    }
+    @JsonProperty public String getSnsSecretKey() {
+        return snsSecretKey;
+    }
+    @JsonProperty public String getSnsARN() {
+        return snsARN;
     }
 
     @NotNull private Pac4jFactory pac4jFactory = new Pac4jFactory();

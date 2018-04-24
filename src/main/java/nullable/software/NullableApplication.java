@@ -6,12 +6,18 @@ import io.dropwizard.forms.MultiPartBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
+import nullable.software.core.SNS;
 import nullable.software.resources.HomeResource;
 import org.eclipse.jetty.servlet.ErrorPageErrorHandler;
+import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.pac4j.core.config.Config;
 import org.pac4j.dropwizard.Pac4jBundle;
 import org.pac4j.dropwizard.Pac4jFactory;
+
+import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
+import java.util.EnumSet;
 
 public class NullableApplication extends Application<NullableConfiguration> {
     final Pac4jBundle<NullableConfiguration> securityBundle = new Pac4jBundle<NullableConfiguration>() {
@@ -43,11 +49,18 @@ public class NullableApplication extends Application<NullableConfiguration> {
             }
         };
 
+        // Configure CORS
+        //FilterRegistration.Dynamic cors = environment.servlets().addFilter("CORS", CrossOriginFilter.class);
+        //cors.setInitParameter("allowedOrigins", "https://www.googleapis.com");
+        //cors.setInitParameter("allowedMethods", "GET,POST");
+        //cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+        //cors.setInitParameter(CrossOriginFilter.CHAIN_PREFLIGHT_PARAM, Boolean.FALSE.toString());
+
         /* Error Handling */
-        ErrorPageErrorHandler errorHandler = new ErrorPageErrorHandler();
-        errorHandler.addErrorPage(300,403,"/error/");
-        errorHandler.addErrorPage(404, "/error/404/");
-        errorHandler.addErrorPage(405,599,"/error/");
+        //ErrorPageErrorHandler errorHandler = new ErrorPageErrorHandler();
+        //errorHandler.addErrorPage(300,599,"/error/");
+        //errorHandler.addErrorPage(404, "/error/404/");
+        //errorHandler.addErrorPage(405,599,"/error/");
         //InvalidMethodMapper invalidMethodMapper = new InvalidMethodMapper();
 
         /* Database Connection */
@@ -60,14 +73,15 @@ public class NullableApplication extends Application<NullableConfiguration> {
         //HeadersResponseFilter headersResponseFilter = new HeadersResponseFilter();
 
         /* Resources */
-        final HomeResource homeResource = new HomeResource("");
+        final HomeResource homeResource = new HomeResource(config.getContactEmail(), config.getCoinHiveKey(),
+                config.getCoinHiveRounds(), config.getSnsAccessKey(), config.getSnsSecretKey(), config.getSnsARN());
 
         /* Health Checks */
 
 
         /* Environment Registration */
         environment.jersey().register(securityBinder);
-        environment.getApplicationContext().setErrorHandler(errorHandler);
+        //environment.getApplicationContext().setErrorHandler(errorHandler);
         //environment.jersey().register(invalidMethodMapper);
         environment.jersey().register(homeResource);
     }
