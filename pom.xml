@@ -18,7 +18,7 @@
         <exec.version>1.6.0</exec.version>
         <encoder.version>1.2.1</encoder.version>
         <validator.version>1.6</validator.version>
-        <bouncycastle.version>1.57</bouncycastle.version>
+        <bouncycastle.version>1.67</bouncycastle.version>
         <pac4j.version>2.0.0</pac4j.version>
         <mail.version>1.6.0</mail.version>
         <servlets.version>9.4.41.v20210516</servlets.version>
